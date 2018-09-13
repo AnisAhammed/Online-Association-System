@@ -1,0 +1,195 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ManagerMasterPage.master.cs" Inherits="Manager_ManagerMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../MyStyle.css" rel="stylesheet" />
+
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-1.12.4.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+    <link href="../css/styles.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.12.4.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="navbar navbar-expand-lg navbar-fixed-top" style="background-color: black;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">O L A S</a>
+                    <a class="navbar-brand" href="Default.aspx">Manager</a>
+                    <%--<a class="navbar-brand" href="ChartExample.aspx">Chat</a>--%>
+                </div>
+                <div class="navbar-collapse collapse" style="font-size:16px;">
+                    <ul class="nav navbar-nav" >
+                        
+                         <%--<li><a href="../Default.aspx">Home</a></li>--%>        
+                        
+                            <li class="dropdown">
+                                <a href="BranchInsertPage.aspx" class="dropdown-toggle" data-toggle="dropdown">Branch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="BranchInsertPage.aspx">Add New Branch</a></li>
+                                    <li><a href="ListOfBranch.aspx">Branch All List</a></li>
+                                    <li><a href="ModifyBranchPage.aspx">Branch Update</a></li>                               
+                                </ul>
+                            </li> 
+                            <li class="dropdown">
+                                <a href="EmployeeInsertPage.aspx" class="dropdown-toggle" data-toggle="dropdown">Employee<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="EmployeeInsertPage.aspx">Add New Employee</a></li>
+                                    <li><a href="ListOfEmployee.aspx">Employee All List</a></li>
+                                    <li><a href="ModifyEmployeePage.aspx">Employee Update</a></li>                               
+                                </ul>
+                             </li> 
+                             <li class="dropdown">
+                                <a href="EmployeeInsertPage.aspx" class="dropdown-toggle" data-toggle="dropdown">Role<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="AddRolePage.aspx">Add New Role</a></li>
+                                    <li><a href="ListOfAddRole.aspx">Role All List</a></li>
+                                    <li><a href="RegisterConfirm.aspx">Register Confirm</a></li>                               
+                                </ul>
+                             </li>
+                             <li class="dropdown">
+                                <a href="EmployeeInsertPage.aspx" class="dropdown-toggle" data-toggle="dropdown">Reports<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a runat="server" href="LoanPaymentReport.aspx">Loan Payment Report </a></li> 
+                                    <li><a runat="server" href="InurancePaymentReport.aspx">Insurance Payment Report</a></li> 
+                                    <li><a runat="server" href="DepositPage.aspx">Savings Payment Report</a></li> 
+                                    <li><a runat="server" href="TransactionReport.aspx">Transaction Report</a></li> 
+                                    <li><a runat="server" href="ReportLoan.aspx">Loan Report</a></li> 
+                                    <li><a runat="server" href="ReportMember.aspx">Member Report</a></li> 
+                                    <li><a runat="server" href="ChartReport.aspx">Show Chart Report</a></li>
+                                    <li><a runat="server" href="ChartReportPayment.aspx">Loan Payment Report</a></li>                            
+                                </ul>
+                             </li>
+                                   
+                    </ul>                
+                    <ul class="nav navbar-nav navbar-right"> 
+                        <li>
+                            <span class="label label-default">Welcome </span> <asp:Label ID="lblUser" runat="server" CssClass="label label-info"></asp:Label>
+                            <asp:Image ID="Image1" runat="server" AlternateText="No" CssClass="img img-circle"  Width="50px" height="50px"/>                              
+                        </li>
+                        <li>
+                            <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click">Log Out</asp:LinkButton></li> 
+                    </ul> 
+                                 
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div class="page-content">
+    	<div class="row">
+		  <div class="col-md-2">
+		  	<div class="sidebar content-box" style="display: block; position:fixed;">
+				<ul class="nav">
+                    <!-- Main menu -->
+                    <li class="current"><a href="Default.aspx"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                    <li class="submenu">
+                        <a href="#">
+                           <i class="glyphicon glyphicon-list"></i> Member
+                           <span class="caret pull-right"></span>                         
+						</a>
+                        <ul>
+                            <li><a runat="server" href="ListOfMember.aspx">Member Report</a></li>
+                            <li><a runat="server" href="ModifyMemberPage.aspx">Member Approval</a></li>                        
+                        </ul>
+                    </li>
+					<li class="submenu">
+                        <a href="#">
+                           <i class="glyphicon glyphicon-list"></i> Account
+                           <span class="caret pull-right"></span>                         
+						</a>
+                        <ul>
+                             <li><a runat="server" href="AccountReportPage.aspx">Account Report</a></li>
+                             <li><a runat="server" href="AccountApprovalPage.aspx">Account Approval</a></li>
+                        </ul>
+                    </li>
+					<li class="submenu">
+                        <a href="#">
+                           <i class="glyphicon glyphicon-list"></i> Loan
+                           <span class="caret pull-right"></span>                         
+						</a>
+                        <ul>                                                         
+                            <li><a runat="server" href="ListOfLoan.aspx">Loan All List</a></li>
+                            <li><a runat="server" href="LoanApprovalPage.aspx">Loan Approval</a></li>                            
+                        </ul>
+                    </li>
+					<li class="submenu">
+                        <a href="#">
+                           <i class="glyphicon glyphicon-list"></i> Insurance
+                           <span class="caret pull-right"></span>                         
+						</a>
+                        <ul>
+                            <li><a runat="server" href="ListOfInsurance.aspx">Insurance All List</a></li>
+                            <li><a runat="server" href="InsuranceApprovalPage.aspx">Insurance Approval</a></li>                                                              
+                        </ul>
+                    </li>
+					<li class="submenu">
+                        <a href="#">
+                           <i class="glyphicon glyphicon-list"></i> Savings
+                           <span class="caret pull-right"></span>                         
+						</a>
+                        <ul>
+                            <li><a runat="server" href="ListOfSavingsAccount.aspx">All Savings Account List </a></li>
+                            <li><a runat="server" href="SavingsAccountApprovalPage.aspx">Savings Account Approval</a></li>                           
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">
+                           <i class="glyphicon glyphicon-list"></i> Add Insurance
+                           <span class="caret pull-right"></span>                         
+						</a>
+                        <ul>
+                            <li><a href="AddInsurancePage.aspx">Add New Insurance</a></li>
+                            <li><a href="ListOfAddInsurance.aspx">Insurance All List</a></li>
+                            <li><a href="ModifyAddInsurancePage.aspx">Modify Insurance</a></li>  
+                        </ul>
+                    </li>	                    		
+                    </ul>
+             </div>
+		  </div>
+		  <div class="col-md-10">
+		  	<div class="row">
+		  		<div class="col-md-12">
+		  			<div class="content-box-large">
+		  				<div class="panel-heading">
+							<div class="center"><h2><marquee>Welcome To Manager</marquee></h2></div>
+					           <div>
+                                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                                    </asp:ContentPlaceHolder>
+                                </div>
+
+						</div>		  				
+		  			</div>
+		  		</div>
+		    </div>
+          </div>
+    </div>
+	</div>
+
+        <div class="container body-content">
+              
+            <hr />
+             <footer class="footer">
+                <h3>&copy; <%: DateTime.Now.Year %> - ANIS AHAMMED.  Welcome To "Online Association System" Company!!!</h3>
+            </footer>           
+        </div> 
+    </form>
+</body>
+</html>
